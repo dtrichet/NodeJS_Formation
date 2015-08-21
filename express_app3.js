@@ -1,4 +1,4 @@
-//METHODE GET
+// CREATION DE MONSTRES EN METHODE GET
 // ----------------------------------------------
 // Gestion des fichiers publics
 var express = require('express');
@@ -9,7 +9,7 @@ var monsters = [
 	{name: 'Loulou', level:6, desc: 'le loup garou qui fait des trous'},
 ];
 
-// Definition du répertoire public
+// Definition du repertoire public
 app.use(express.static(__dirname + '/public'));
 
 // Gestion des monstres URL /monsters/id
@@ -18,14 +18,14 @@ app.get('/monsters/:id', function (req, res) {
 	res.send(monsterId.name + ' ' + monsterId.desc);
 });
 
-// Creation des monstres Methode GET dans le formulaire
+// Creation des monstres Methode GET dans le formulaire req.query
 app.get('/create_monster', function (req, res){
 	monsters.push({
 		name: req.query.name,
 		desc: req.query.desc,
 		level: parseInt(req.query.level, 10)
 	});
-	res.send("OK, monstre validé");
+	res.send("OK, monstre validÃ©");
 });
 
 // ----------------------------------------

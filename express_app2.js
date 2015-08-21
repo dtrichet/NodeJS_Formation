@@ -7,12 +7,12 @@ var count = 0;
 // Gestion des log
 //app.use(morgan('combined'))
 
-// Definition du répertoire public
+// Definition du repertoire public
 // __dirname = repertoire courant.
-// ATTENTION : Express donne la priorité au dossier public déclaré. 
+// ATTENTION : Express donne la priorite au dossier public declare. 
 app.use(express.static(__dirname + '/public'));
 
-// Si image index.html non trouvé dans repertoire public
+// Si image index.html non trouve dans repertoire public
 app.get('/', function (req, res) {
 	res.send('Page index introuvable')
 });

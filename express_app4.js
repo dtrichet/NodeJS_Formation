@@ -1,4 +1,4 @@
-//METHODE POST
+// CREATION DE MONSTRES EN METHODE POST
 // ----------------------------------------------
 // Gestion des fichiers publics
 var express = require('express');
@@ -24,14 +24,14 @@ app.get('/monsters/:id', function (req, res) {
 	res.send(monsterId.name + ' ' + monsterId.desc);
 });
 
-// Creation des monstres Methode POST dans le formulaire
+// Creation des monstres Methode POST dans le formulaire req.body
 app.post('/create_monster', function (req, res){
 	monsters.push({
 		name: req.body.name,
 		desc: req.body.desc,
 		level: parseInt(req.body.level, 10)
 	});
-	res.send("OK, monstre validé");
+	res.send("OK, monstre validÃ©");
 });
 
 // ----------------------------------------

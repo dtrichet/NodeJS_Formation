@@ -6,7 +6,7 @@ app.get('/', function (req, res) {
   res.send('Hello World!')
 })
 app.get('/test', function (req, res) {
-  // le code retour est gérer par Express mais peut être forcé : ici le code 200
+  // le code retour est gï¿½rer par Express mais peut ï¿½tre forcï¿½ : ici le code 200
   res.send('Page test', 200)
 })
 app.get('/users', function (req, res) {

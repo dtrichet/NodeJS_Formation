@@ -1,8 +1,9 @@
-// GESTION DES TEMPLATES
+// GESTION DES TEMPLATES ET DES VUES
 // ----------------------------------------------
 var express = require('express');
 var app = express();
 var bodyParser  = require('body-parser');
+var count = 0;
 
 app.use(express.static(__dirname + '/public'));
 
@@ -14,9 +15,6 @@ app.use(bodyParser.json());
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
-// Definition du répertoire de templates
-//app.set('view', __dirname + '/views');
-
 var monsters = [
 	{name: 'Riri', level:3, desc: 'le petit cochon qui rit'},
 	{name: 'Fifi', level:2, desc: 'le vampire qui rend pire'},
@@ -24,9 +22,9 @@ var monsters = [
 ];
 
 // Gestion des monstres URL /monsters/id
-app.get('/monster/:id', function (req, res) {
+app.get('/monsters/:id', function (req, res) {
 	var monsterId = monsters[req.params.id - 1];
-	count =+= 1;	
+	count += 1;	
 	res.render('monster.ejs', {monster: monsterId});
 });
 
