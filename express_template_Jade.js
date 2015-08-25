@@ -1,9 +1,9 @@
-// CREATION DE MONSTRES EN METHODE POST
+// GESTION DES TEMPLATES ET DES VUES
 // ----------------------------------------------
-// Gestion des fichiers publics
 var express = require('express');
 var app = express();
 var bodyParser  = require('body-parser');
+var count = 0;
 
 app.use(express.static(__dirname + '/public'));
 
@@ -11,6 +11,9 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(bodyParser.json());
+
+// set the view engine to ejs
+app.set('view engine', 'jade');
 
 var monsters = [
 	{name: 'Riri', level:3, desc: 'le petit cochon qui rit'},
@@ -21,17 +24,8 @@ var monsters = [
 // Gestion des monstres URL /monsters/id
 app.get('/monsters/:id', function (req, res) {
 	var monsterId = monsters[req.params.id - 1];
-	res.send(monsterId.name + ' ' + monsterId.desc);
-});
-
-// Creation des monstres Methode POST dans le formulaire req.body
-app.post('/create_monster', function (req, res){
-	monsters.push({
-		name: req.body.name,
-		desc: req.body.desc,
-		level: parseInt(req.body.level, 10)
-	});
-	res.send("OK, monstre validé");
+	count += 1;	
+	res.render('monster.jade', {monster: monsterId});
 });
 
 // ----------------------------------------

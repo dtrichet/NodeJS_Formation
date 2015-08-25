@@ -1,4 +1,5 @@
 // GESTION DES TEMPLATES ET DES VUES
+// Utilisation du moteur de template JADE
 // ----------------------------------------------
 var express = require('express');
 var app = express();
@@ -18,7 +19,7 @@ app.set('view engine', 'ejs');
 var monsters = [
 	{name: 'Riri', level:3, desc: 'le petit cochon qui rit'},
 	{name: 'Fifi', level:2, desc: 'le vampire qui rend pire'},
-	{name: 'Loulou', level:6, desc: 'le loup garou qui fait des trous'},
+	{name: 'Loulou', level:6, desc: 'le loup garou qui fait des trous'}
 ];
 
 // Gestion des monstres URL /monsters/id
@@ -30,7 +31,7 @@ app.get('/monsters/:id', function (req, res) {
 
 // ----------------------------------------
 var server = app.listen(8888, function () {
-	var host = server.address().address
-	var port = server.address().port
-	console.log('Example app listening at http://%s:%s', host, port)
+	var host = server.address().address;
+	var port = server.address().port;
+	console.log('Example app listening at http://%s:%s', host, port);
 });
